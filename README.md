@@ -81,7 +81,7 @@ This is a chicken-and-egg situation: the playground needs the compiled output to
 
 In this submission repo, `src/design.v` is **removed from `.gitignore` and committed** alongside the Spade source. The CI still regenerates it on every workflow run (overwriting the committed copy), so it always reflects the current source. When "Submit a new revision" is clicked on the TT project page, TT captures the HEAD SHA at that point — a commit that includes `design.v` — and the playground can fetch it successfully.
 
-The trade-off is that `design.v` appears as a tracked file even though it is a build artefact. This is a deliberate compromise, made only in the submission repo. The development repo (`ttsky26a-gvt-design`) keeps generated files gitignored as normal practice.
+The trade-off is that `design.v` appears as a tracked file even though it is a build artefact. This is a deliberate compromise specific to this submission repo, where playground compatibility takes priority over the usual practice of gitignoring generated files.
 
 ---
 
