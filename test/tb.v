@@ -27,7 +27,7 @@ module tb ();
   wire VGND = 1'b0;
 `endif
 
-  tt_um_ttsky26a_gvt user_project (
+  tt_um_gerardvt_spade_poc user_project (
 
       // Include power ports for the Gate Level test:
 `ifdef GL_TEST
