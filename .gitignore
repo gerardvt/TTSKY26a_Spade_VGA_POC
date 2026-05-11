@@ -1,3 +1,6 @@
+src/design.v
+spade/build/
+spade/.surfer/
 .DS_Store
 .idea
 *.vcd

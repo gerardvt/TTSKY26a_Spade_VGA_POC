@@ -1,0 +1,6 @@
+# Package namespace: all generated modules are prefixed with this name.
+# e.g. entity gvt_core becomes \gvt_design::gvt_core in the SystemVerilog output.
+name = "gvt_design"
+
+# Required by swim but otherwise unused in this project.
+version = "0.1.0"

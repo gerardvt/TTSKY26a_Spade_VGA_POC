@@ -13,5 +13,25 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache swim binary
+        id: cache-swim
+        uses: actions/cache@v4
+        with:
+          path: ~/.cargo/bin/swim
+          key: swim-${{ runner.os }}-${{ hashFiles('spade/swim.toml') }}
+
+      - name: Install Swim (Spade build tool)
+        if: steps.cache-swim.outputs.cache-hit != 'true'
+        run: cargo install --git https://gitlab.com/spade-lang/swim
+
+      - name: Generate Verilog from Spade
+        run: |
+          cd spade
+          swim build
+          cp build/spade.sv ../src/design.v
+
       - name: Build docs
         uses: TinyTapeout/tt-gds-action/docs@ttsky26a
